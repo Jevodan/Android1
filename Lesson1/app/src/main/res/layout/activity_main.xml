@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#FF0099CC">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/city_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="Выбранный город"
+            android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+        <TextView
+            android:id="@+id/updated_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/city_field"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="Дата погоды"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="13sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/weather_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Иконка погоды)"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="24sp"/>
+
+        <TextView
+            android:id="@+id/powTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/weather_icon"
+            android:layout_centerHorizontal="true"
+            android:text="Давление:"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+        <TextView
+            android:id="@+id/waterTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Влажность:"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+        <TextView
+            android:id="@+id/windTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ветер:"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tempTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="Температура"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="40sp"/>
+    </LinearLayout>
+
+</RelativeLayout>
