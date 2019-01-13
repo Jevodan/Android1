@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="#FF0099CC">
+    tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,22 +15,18 @@
             android:id="@+id/city_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
             android:gravity="center"
-            android:text="Выбранный город"
-            android:textAppearance="?android:attr/textAppearanceLarge"/>
+            android:text="@string/changed_city"
+            style="@style/MyTheme"
+            />
 
         <TextView
             android:id="@+id/updated_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/city_field"
-            android:layout_centerHorizontal="true"
             android:gravity="center"
-            android:text="Дата погоды"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textSize="13sp"/>
+            android:text="@string/date_weather"
+            android:textSize="23sp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -47,35 +42,32 @@
 
         <TextView
             android:id="@+id/weather_icon"
+            style="@style/TextIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text="Иконка погоды)"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="24sp"/>
+            android:text="@string/fa_snowflake_o"
+            android:textSize="@android:dimen/notification_large_icon_height"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/powTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/weather_icon"
-            android:layout_centerHorizontal="true"
-            android:text="Давление:"
+            android:text="@string/pow_weather"
             android:textAppearance="?android:attr/textAppearanceMedium"/>
 
         <TextView
             android:id="@+id/waterTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Влажность:"
+            android:text="@string/water_weather"
             android:textAppearance="?android:attr/textAppearanceMedium"/>
 
         <TextView
             android:id="@+id/windTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ветер:"
+            android:text="@string/wind_weather"
             android:textAppearance="?android:attr/textAppearanceMedium"/>
 
     </LinearLayout>
@@ -90,10 +82,8 @@
             android:id="@+id/tempTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
             android:gravity="center"
-            android:text="Температура"
+            android:text="@string/temp_weather"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="40sp"/>
     </LinearLayout>

@@ -25,5 +25,13 @@
     <string name="title_activity_weather">WeatherActivity</string>
     <string name="writeCity">Выбрать город</string>
     <string name="goWeatherActivity">Узнать погоду</string>
+    <string name="changed_city">Выбранный город</string>
+    <string name="date_weather">Дата погоды</string>
+    <string name="weather_picture">Иконка погоды)</string>
+    <string name="pow_weather">Давление:</string>
+    <string name="water_weather">Влажность:</string>
+    <string name="wind_weather">Ветер:</string>
+    <string name="temp_weather">Температура</string>
+    <string name="fa_snowflake_o">\uf2dc</string>
 
 </resources>

@@ -22,7 +22,10 @@ public class WeatherActivity extends AppCompatActivity {
     public static final String WIND = "WIND";
     private EditText mCity;
     private Button mButton;
-    private CheckBox mTemp, mPow, mWater, mWind;
+    private CheckBox mTemp;
+    private CheckBox mPow;
+    private CheckBox mWater;
+    private CheckBox mWind;
     private Switch mSwitch;
 
     @Override
