@@ -33,5 +33,6 @@
     <string name="wind_weather">Ветер:</string>
     <string name="temp_weather">Температура</string>
     <string name="fa_snowflake_o">\uf2dc</string>
+    <string name="known_weather">Узнать погоду</string>
 
 </resources>
