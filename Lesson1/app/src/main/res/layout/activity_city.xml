@@ -1,12 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+
+
+<android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/placeholder"
+    tools:context=".StartActivity">
 
-    tools:context=".CityActivity">
 
-</FrameLayout>
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/primaryColorDark"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <ImageView
+                android:id="@+id/app_bar_image"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/cloudy" />
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:openDrawer="start">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".CityActivity">
+
+        <FrameLayout
+            android:id="@+id/city_name_fragment"
+            android:name="com.jevo.alexander.lesson1.CityItemFragment"
+            android:layout_width="420dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="0dp"
+            android:orientation="horizontal"
+            tools:layout="@layout/city_fragment_item_list" />
+
+        <FrameLayout
+            android:id="@+id/coat_of_arm_fragment"
+            android:name="com.jevo.alexander.lesson1.CoatOfArmFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="420dp"
+            android:orientation="horizontal"
+            tools:layout="@layout/fragment_coat_of_arm" />
+    </FrameLayout>
+
+
+        <android.support.design.widget.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:headerLayout="@layout/nav_header_main2"
+            app:menu="@menu/activity_main2_drawer" />
+    </android.support.v4.widget.DrawerLayout>
+</android.support.design.widget.CoordinatorLayout>
+
+
+
+

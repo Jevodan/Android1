@@ -39,6 +39,12 @@
         android:gravity="center"
         android:orientation="vertical"
         android:padding="15dp">
+        <ImageView
+            android:id="@+id/coat_of_arm_image"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@color/colorPrimary"
+            tools:src="@mipmap/ic_launcher" />
 
         <TextView
             android:id="@+id/weather_icon"

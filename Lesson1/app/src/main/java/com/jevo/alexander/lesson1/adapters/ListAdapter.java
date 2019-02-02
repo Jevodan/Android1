@@ -1,6 +1,5 @@
 package com.jevo.alexander.lesson1.adapters;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -12,16 +11,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.jevo.alexander.lesson1.CityActivity;
-import com.jevo.alexander.lesson1.CityData;
+import com.jevo.alexander.lesson1.model.CityData;
 import com.jevo.alexander.lesson1.MainActivity;
 import com.jevo.alexander.lesson1.R;
+import com.jevo.alexander.lesson1.model.CityRepository;
 
-import static com.jevo.alexander.lesson1.CityActivity.CITY;
-import static com.jevo.alexander.lesson1.CityActivity.POW;
-import static com.jevo.alexander.lesson1.CityActivity.TEMP;
-import static com.jevo.alexander.lesson1.CityActivity.WATER;
-import static com.jevo.alexander.lesson1.CityActivity.WIND;
+
+
 
 /**
  * Created by Alexander on 16.01.2019.
@@ -43,11 +39,11 @@ public class ListAdapter extends RecyclerView.Adapter {
                 Log.i("TEST", "ТЕСТ222");
                 Context context = ((ListViewHolder) viewHolder).mItemText.getContext();
                 Intent intent2 = new Intent(context, MainActivity.class);
-                intent2.putExtra(CITY, CityData.getTitle()[i]);
-                intent2.putExtra(TEMP, CityData.getTemp()[i]);
-                intent2.putExtra(POW, CityData.getPow()[i]);
-                intent2.putExtra(WATER, CityData.getWater()[i]);
-                intent2.putExtra(WIND, CityData.getWind()[i]);
+              //  intent2.putExtra(CITY, CityRepository.ITEMS.get(i).content);
+             //   intent2.putExtra(TEMP, CityData.getTemp()[i]);
+             //   intent2.putExtra(POW, CityData.getPow()[i]);
+             //   intent2.putExtra(WATER, CityData.getWater()[i]);
+             //   intent2.putExtra(WIND, CityData.getWind()[i]);
                 context.startActivity(intent2);
             }
         });
@@ -57,7 +53,7 @@ public class ListAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return CityData.getTitle().length;
+        return CityRepository.ITEMS.size();
     }
 
     private class ListViewHolder extends RecyclerView.ViewHolder {
@@ -72,8 +68,8 @@ public class ListAdapter extends RecyclerView.Adapter {
         }
 
         public void bindView(int position) {
-            mItemText.setText(CityData.title[position]);
-            mItemImage.setImageResource(CityData.picturePath[position]);
+            mItemText.setText(CityRepository.ITEMS.get(position).content);
+            mItemImage.setImageResource(CityRepository.getPicturePath()[position]);
         }
     }
 }
