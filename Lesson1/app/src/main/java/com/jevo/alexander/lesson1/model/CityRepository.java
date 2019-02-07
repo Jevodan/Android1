@@ -1,16 +1,14 @@
 package com.jevo.alexander.lesson1.model;
 
 
-import android.support.annotation.NonNull;
 
 import com.jevo.alexander.lesson1.R;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+import androidx.annotation.NonNull;
 
 
 /**

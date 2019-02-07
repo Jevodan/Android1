@@ -6,12 +6,22 @@ public class Weather {
     private String pressure;
     private String humidity;
     private String wind;
+    private String[] weatherWeek;
 
-    public Weather(String temperature, String pressure, String humidity, String wind) {
+    public Weather(String temperature, String pressure, String humidity, String wind, String[] weatherWeek) {
         this.temperature = temperature;
         this.pressure = pressure;
         this.humidity = humidity;
         this.wind = wind;
+        this.weatherWeek = weatherWeek;
+    }
+
+    public String[] getWeatherWeek() {
+        return weatherWeek;
+    }
+
+    public void setWeatherWeek(String[] weatherWeek) {
+        this.weatherWeek = weatherWeek;
     }
 
     public String getTemperature() {

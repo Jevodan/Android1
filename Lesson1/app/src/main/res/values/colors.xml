@@ -9,6 +9,7 @@
     <color name="background">#a3daec</color>
     <color name="textPrimaryColor">#e4f0f4</color>
     <color name="whiteColor">#ffffff</color>
+    <color name="orangeColor">#ffa200</color>
 
 
 </resources>
