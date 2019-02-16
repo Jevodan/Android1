@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/item_card_view"
@@ -21,7 +20,8 @@
         android:layout_weight="3"
         android:contentDescription="@string/todo"
         android:scaleType="fitCenter"
-        tools:src="@drawable/russia" />
+        tools:src="@drawable/cloudy" />
+
 
     <ImageView
         android:layout_width="match_parent"
@@ -35,8 +35,48 @@
         android:layout_gravity="top|center_horizontal"
         android:layout_weight="1"
         android:textColor="@color/whiteColor"
-        android:textSize="24sp"
+        android:textSize="@dimen/sp_24"
         android:textStyle="bold"
         tools:text="Город" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="bottom">
+
+
+
+        <TextView
+            android:id="@+id/tempTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:text="@string/temp"
+            android:layout_marginLeft="@dimen/dp_80"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sp_24"
+            android:textStyle="bold"
+            tools:text="Температура °C" />
+
+        <ImageView
+            android:id="@+id/tempImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|bottom"
+            android:src="@drawable/ic_temperature"
+            tools:src="@drawable/ic_temperature" />
+
+        <TextView
+            android:id="@+id/descTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:gravity="right"
+            android:layout_marginRight="16dp"
+            android:textColor="@android:color/holo_blue_dark"
+            tools:text="описание"/>
+
+    </LinearLayout>
 
 </androidx.cardview.widget.CardView>

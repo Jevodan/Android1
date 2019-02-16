@@ -7,9 +7,9 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:orientation="vertical"
-    tools:context=".StartActivity">
+    tools:context=".view.StartActivity">
 
-    <com.jevo.alexander.lesson1.Preview
+    <com.jevo.alexander.lesson1.view.Preview
         android:id="@+id/customView"
         android:layout_weight="1"
         android:layout_width="wrap_content"

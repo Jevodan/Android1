@@ -28,10 +28,9 @@
     <string name="changed_city">Выбранный город</string>
     <string name="date_weather">Дата погоды</string>
     <string name="weather_picture">Иконка погоды)</string>
-    <string name="pow_weather">Давление:</string>
-    <string name="water_weather">Влажность:</string>
-    <string name="wind_weather">Ветер:</string>
-    <string name="temp_weather">Температура</string>
+    <string name="pow_weather">pressure: %1$s mm</string>
+    <string name="water_weather">humidity: %1$s %%</string>
+    <string name="wind_weather">wind: %1$s m/s</string>
     <string name="fa_snowflake_o">\uf2dc</string>
     <string name="known_weather">Узнать погоду</string>
     <string name="todo">rrr</string>
@@ -39,7 +38,9 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title">Development: Alex Kostrov</string>
+    <string name="nav_header_subtitle">alexanderssen@mail.ru</string>
+    <string name="temp">%1$s °C</string>
+    <string name="enter_city">Введите город</string>
 
 </resources>

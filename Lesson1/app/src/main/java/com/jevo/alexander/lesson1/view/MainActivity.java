@@ -1,4 +1,4 @@
-package com.jevo.alexander.lesson1;
+package com.jevo.alexander.lesson1.view;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.jevo.alexander.lesson1.BuildConfig;
+import com.jevo.alexander.lesson1.R;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {

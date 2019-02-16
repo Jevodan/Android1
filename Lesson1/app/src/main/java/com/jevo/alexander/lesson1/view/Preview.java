@@ -1,4 +1,4 @@
-package com.jevo.alexander.lesson1;
+package com.jevo.alexander.lesson1.view;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -7,6 +7,9 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+
+import com.jevo.alexander.lesson1.R;
+
 import androidx.annotation.Nullable;
 
 public class Preview extends View {
