@@ -34,7 +34,7 @@ public class CityActivity extends AppCompatActivity
     CoatOfArmFragment coatOfArm = new CoatOfArmFragment();
     int ori;
 
-    @OnTextChanged(R.id.search_editTtext)
+    @OnClick(R.id.search_editTtext)
     public void onClick() {
         Toast.makeText(this, "В разработке)", Toast.LENGTH_LONG);
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(CityActivity.this);
