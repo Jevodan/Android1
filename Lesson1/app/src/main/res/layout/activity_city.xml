@@ -9,6 +9,27 @@
     android:focusableInTouchMode="true"
     tools:context=".view.StartActivity">
 
+
+    <ProgressBar
+        android:id="@id/loadingView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true" />
+
+
+    <TextView
+        android:id="@id/contentView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        tools:text="444444" />
+
+    <TextView
+        android:id="@id/errorView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
@@ -61,7 +82,7 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".view.CityActivity">
+            tools:context=".view.city.CityActivity">
 
             <TextView
                 android:id="@id/contentView"

@@ -24,15 +24,11 @@ public class CoatOfArmActivity extends AppCompatActivity
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_coat_of_arm);
-
     OneCity oneCity = new Gson().fromJson(getIntent().getStringExtra("one_city"), OneCity.class);
-
-    int imageId = getIntent().getIntExtra("id", R.drawable.astana);
     getSupportFragmentManager().beginTransaction().replace(R.id.placeholder, fragment2).commit();
 
     Handler handler = new Handler();
     handler.post(() -> {
-   //   fragment2.changeImage(imageId);
       Picasso.get()
               .load(Constants.iconWeatherExternalLink + oneCity.getWeather().get(0).getIcon() + ".png")
               .placeholder(R.drawable.cloudy)
@@ -44,7 +40,6 @@ public class CoatOfArmActivity extends AppCompatActivity
       fragment2.cityTextView.setText(oneCity.getName());
       fragment2.descTextView.setText(oneCity.getWeather().get(0).getDescription());
     });
-
   }
 
   @Override

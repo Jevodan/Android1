@@ -3,7 +3,16 @@ package com.jevo.alexander.lesson1.model.entity.weather;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity
 public class Main {
+
+    @PrimaryKey
+    @SerializedName("id")
+    @Expose
+    private int id;
 
     @SerializedName("temp")
     @Expose

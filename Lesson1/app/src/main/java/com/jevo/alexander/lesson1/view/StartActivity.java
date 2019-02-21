@@ -8,6 +8,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import com.jevo.alexander.lesson1.R;
+import com.jevo.alexander.lesson1.view.city.CityActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 

@@ -22,19 +22,19 @@ public class CoatOfArmFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
 
     @BindView(R.id.coat_of_arm_image)
-    ImageView image;
+    public ImageView image;
     @BindView(R.id.powTextView)
-    TextView powTextView;
+    public TextView powTextView;
     @BindView(R.id.waterTextView)
-    TextView waterTextView;
+    public TextView waterTextView;
     @BindView(R.id.windTextView)
-    TextView windTextView;
+    public TextView windTextView;
     @BindView(R.id.tempTextView)
-    TextView tempTextView;
+    public TextView tempTextView;
     @BindView(R.id.desc_field)
-    TextView descTextView;
+    public TextView descTextView;
     @BindView(R.id.city_field)
-    TextView cityTextView;
+    public TextView cityTextView;
 
     private CoatOfArmListener mListener;
 
