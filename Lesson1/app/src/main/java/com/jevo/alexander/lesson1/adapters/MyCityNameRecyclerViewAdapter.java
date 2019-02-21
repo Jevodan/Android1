@@ -1,40 +1,29 @@
 package com.jevo.alexander.lesson1.adapters;
 
-import android.content.res.AssetManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.jevo.alexander.lesson1.R;
 import com.jevo.alexander.lesson1.model.entity.weather.OneCity;
 import com.jevo.alexander.lesson1.tools.Constants;
 import com.jevo.alexander.lesson1.tools.ItemConvert;
-import com.jevo.alexander.lesson1.view.CityItemFragment.OnListFragmentInteractionListener;
+import com.jevo.alexander.lesson1.view.city.CityItemFragment.OnListFragmentInteractionListener;
 import com.squareup.picasso.Picasso;
-
 import java.util.List;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-/**
- * {@link RecyclerView.Adapter} that can display a {@link OneCity} and makes a call to the specified
- * {@link OnListFragmentInteractionListener}. TODO: Replace the implementation with code for your
- * data type.
- */
+
 @SuppressWarnings("ALL")
 public class MyCityNameRecyclerViewAdapter
         extends RecyclerView.Adapter<MyCityNameRecyclerViewAdapter.ViewHolder> {
 
-    public static final int FARENGEIT = 273;
     private final List<OneCity> values;
     private final OnListFragmentInteractionListener listener;
-    private final AssetManager assetManager;
+    public static int lastVisibleItem;
+    public static int totalItemCount;
 
     /**
      * @param items
@@ -42,10 +31,9 @@ public class MyCityNameRecyclerViewAdapter
      * @param assetManager
      */
     public MyCityNameRecyclerViewAdapter(
-            List<OneCity> items, OnListFragmentInteractionListener listener, AssetManager assetManager) {
+            List<OneCity> items, OnListFragmentInteractionListener listener) {
         values = items;
         this.listener = listener;
-        this.assetManager = assetManager;
     }
 
     @NonNull
@@ -60,15 +48,15 @@ public class MyCityNameRecyclerViewAdapter
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         setImage(holder, position);
-
-        holder.contentDesc.setText(values.get(position).getWeather().get(0).getDescription());
-        holder.contentView.setText(values.get(position).getName());
-        holder.contentTemp.setText(ItemConvert.getTempString(holder.view, values.get(position)));
-        ItemConvert.getTempImage(holder.view, values.get(position));
+        OneCity item = values.get(position);
+        holder.contentDesc.setText(item.getWeather().get(0).getDescription());
+        holder.contentView.setText(item.getName());
+        holder.contentTemp.setText(ItemConvert.getTempString(holder.view, item));
+        ItemConvert.getTempImage(holder.view, item);
         holder.view.setOnClickListener(
                 (View v) -> {
                     if (null != listener) {
-                        listener.onListFragmentInteraction(values.get(position));
+                        listener.onListFragmentInteraction(item);
                     }
                 });
     }
@@ -107,4 +95,5 @@ public class MyCityNameRecyclerViewAdapter
             return super.toString() + " '" + contentView.getText() + "'";
         }
     }
+    
 }

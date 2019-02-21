@@ -1,47 +1,56 @@
-package com.jevo.alexander.lesson1.view;
+package com.jevo.alexander.lesson1.view.city;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
+import android.widget.EditText;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.gson.Gson;
+import com.hannesdorfmann.mosby3.mvp.lce.MvpLceActivity;
+import com.hannesdorfmann.mosby3.mvp.lce.MvpLceView;
 import com.jevo.alexander.lesson1.R;
+import com.jevo.alexander.lesson1.model.CityModelImpl;
+import com.jevo.alexander.lesson1.model.api.WeatherService;
 import com.jevo.alexander.lesson1.model.entity.weather.OneCity;
+import com.jevo.alexander.lesson1.presenter.CityPresenter;
+import com.jevo.alexander.lesson1.presenter.CityPresenterImpl;
 import com.jevo.alexander.lesson1.tools.Constants;
 import com.jevo.alexander.lesson1.tools.ItemConvert;
+import com.jevo.alexander.lesson1.view.CoatOfArmActivity;
+import com.jevo.alexander.lesson1.view.CoatOfArmFragment;
 import com.squareup.picasso.Picasso;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.RecyclerView;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.OnTextChanged;
+import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 
-public class CityActivity extends AppCompatActivity
-        implements CityItemFragment.OnListFragmentInteractionListener,
-        CoatOfArmFragment.CoatOfArmListener,
-        NavigationView.OnNavigationItemSelectedListener {
+public class CityActivity extends MvpLceActivity<RecyclerView, OneCity, CityViewActivity, CityPresenter>
+        implements CityViewActivity, CityItemFragment.OnListFragmentInteractionListener,
+        NavigationView.OnNavigationItemSelectedListener, MvpLceView<OneCity> {
 
     CoatOfArmFragment coatOfArm = new CoatOfArmFragment();
     int ori;
+    @BindView(R.id.search_editTtext)
+    EditText searchText;
 
     @OnClick(R.id.search_editTtext)
     public void onClick() {
-        Toast.makeText(this, "В разработке)", Toast.LENGTH_LONG);
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(CityActivity.this);
-        alertDialog.setTitle("Функция поиска города");
-        alertDialog.setMessage("В разработке");
-        alertDialog.show();
+        loadData(false);
     }
+
+    String searchCity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,8 +67,7 @@ public class CityActivity extends AppCompatActivity
                 .replace(R.id.coat_of_arm_fragment, coatOfArm)
                 .commit();
 
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle =
                 new ActionBarDrawerToggle(
                         this,
@@ -69,14 +77,34 @@ public class CityActivity extends AppCompatActivity
                         R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this::onOptionsItemSelected);
     }
 
+    @NonNull
+    @Override
+    public CityPresenter createPresenter() {
+        checkSearch();
+        WeatherService api = new Retrofit
+                .Builder()
+                .baseUrl(WeatherService.baseUrl)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+                .create(WeatherService.class);
+        return new CityPresenterImpl(new CityModelImpl(api));
+    }
+
+    private void checkSearch() {
+        if (searchText != null)
+            searchCity = searchText.getText().toString();
+        else
+            searchCity = "";
+    }
+
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -84,7 +112,6 @@ public class CityActivity extends AppCompatActivity
         }
     }
 
-    @SuppressLint("SetTextI18n")
     @Override
     public void onListFragmentInteraction(OneCity item) {
         Log.d("TAG1", "onListFragmentInteraction: " + item);
@@ -100,19 +127,20 @@ public class CityActivity extends AppCompatActivity
             coatOfArm.cityTextView.setText(item.getName());
             coatOfArm.descTextView.setText(item.getWeather().get(0).getDescription());
         } else {
-            Intent intent = new Intent(getApplicationContext(), CoatOfArmActivity.class);
-            intent.putExtra("one_city", new Gson().toJson(item));
-            startActivity(intent);
+            doIntent(item);
         }
     }
 
-    @Override
-    public void clickOnImage() {
+    private void doIntent(OneCity item) {
+        Intent intent = new Intent(getApplicationContext(), CoatOfArmActivity.class);
+        intent.putExtra("one_city", new Gson().toJson(item));
+        startActivity(intent);
     }
 
+
+    //regionMenu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
@@ -127,6 +155,7 @@ public class CityActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+    //endregion
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -137,7 +166,7 @@ public class CityActivity extends AppCompatActivity
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
 
-        }  else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
 
@@ -149,4 +178,21 @@ public class CityActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    @Override
+    protected String getErrorMessage(Throwable e, boolean pullToRefresh) {
+        return null;
+    }
+
+    @Override
+    public void setData(OneCity data) {
+        doIntent(data);
+    }
+
+    @Override
+    public void loadData(boolean pullToRefresh) {
+        checkSearch();
+        getPresenter().loadInfoSearch(searchCity);
+    }
+
 }
