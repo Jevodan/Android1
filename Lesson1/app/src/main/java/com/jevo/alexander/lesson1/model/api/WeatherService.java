@@ -18,11 +18,10 @@ public interface WeatherService {
             @Query("q") String city,
             @Query("appid") String app);
 
-    @GET("find?units=metric")
-    Observable<ListCities> getCitiesCoord(
-            @Query("lat") String lat,
-            @Query("lon") String lon,
-            @Query("cnt") String cnt,
+    @GET("weather?units=metric")
+    Observable<OneCity> getCitiesCoord(
+            @Query("lat") double lat,
+            @Query("lon") double lon,
             @Query("appid") String app);
 
     @GET("group?units=metric")

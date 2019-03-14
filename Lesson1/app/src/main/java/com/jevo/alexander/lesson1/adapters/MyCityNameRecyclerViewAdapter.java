@@ -95,5 +95,5 @@ public class MyCityNameRecyclerViewAdapter
             return super.toString() + " '" + contentView.getText() + "'";
         }
     }
-    
+
 }

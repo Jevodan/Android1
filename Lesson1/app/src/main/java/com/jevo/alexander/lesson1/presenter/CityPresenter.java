@@ -7,4 +7,6 @@ public interface CityPresenter extends MvpPresenter<CityViewActivity> {
 
     void loadInfoSearch(String city);
 
+    void loadCurrentCoord(double lat, double lon);
+
 }

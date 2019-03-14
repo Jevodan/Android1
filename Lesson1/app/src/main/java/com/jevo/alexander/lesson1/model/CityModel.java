@@ -9,6 +9,6 @@ public interface CityModel {
 
     Observable<OneCity> retrieveInfo(String city);
     Observable<ListCities> retrieveInfo();
-    Observable<ListCities> retrieveInfoCoord();
+    Observable<OneCity> retrieveInfoCoord(double lat, double lon);
     void load(int count, int countItems);
 }

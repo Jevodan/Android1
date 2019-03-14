@@ -10,12 +10,13 @@ import com.jevo.alexander.lesson1.R;
 import com.jevo.alexander.lesson1.model.entity.weather.OneCity;
 import com.jevo.alexander.lesson1.tools.Constants;
 import com.jevo.alexander.lesson1.tools.ItemConvert;
+import com.jevo.alexander.lesson1.tools.PermissionActivity;
 import com.squareup.picasso.Picasso;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class CoatOfArmActivity extends AppCompatActivity
+public class CoatOfArmActivity extends PermissionActivity
     implements CoatOfArmFragment.CoatOfArmListener {
   final CoatOfArmFragment fragment2 = new CoatOfArmFragment();
 

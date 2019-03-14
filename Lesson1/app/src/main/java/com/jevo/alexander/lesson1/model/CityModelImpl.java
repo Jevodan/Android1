@@ -33,8 +33,8 @@ public class CityModelImpl implements CityModel {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
-    public Observable<ListCities> retrieveInfoCoord() {
-        return api.getCitiesCoord(Coords.lat, Coords.lon , Coords.cnt, WeatherService.API_KEY).subscribeOn(Schedulers.io());
+    public Observable<OneCity> retrieveInfoCoord(double lat, double lon) {
+        return api.getCitiesCoord(lat, lon , WeatherService.API_KEY).subscribeOn(Schedulers.io());
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
