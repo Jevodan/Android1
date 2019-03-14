@@ -1,45 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+
+        android:id="@+id/listRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:orientation="vertical"
+        tools:itemCount="5"
+        tools:listitem="@android:layout/simple_list_item_1" />
 
 
-        <ProgressBar
-            android:id="@id/loadingView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:indeterminate="true"/>
+
+    <ProgressBar
+        android:id="@id/loadingView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true" />
 
 
-        <TextView
-            android:id="@id/contentView"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:text="444444"
-            />
+    <TextView
+        android:id="@id/contentView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        tools:text="444444" />
 
-        <TextView
-            android:id="@id/errorView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
-
-
-<androidx.recyclerview.widget.RecyclerView
-
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/listRecyclerView"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
-    tools:itemCount="5"
-    tools:listitem="@android:layout/simple_list_item_1"
-    />
+    <TextView
+        android:id="@id/errorView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </RelativeLayout>
